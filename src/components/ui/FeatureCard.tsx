@@ -3,6 +3,7 @@ import React from 'react';
 import { cn } from '@/lib/utils';
 import GlassCard from './GlassCard';
 import Chip from './Chip';
+import AnimatedArrow from './AnimatedArrow';
 
 interface FeatureCardProps {
   title: string;
@@ -10,6 +11,7 @@ interface FeatureCardProps {
   icon: React.ReactNode;
   label?: string;
   className?: string;
+  onClick?: () => void;
 }
 
 const FeatureCard = ({ 
@@ -17,12 +19,17 @@ const FeatureCard = ({
   description, 
   icon, 
   label,
-  className 
+  className,
+  onClick
 }: FeatureCardProps) => {
   return (
     <GlassCard 
-      className={cn('p-6 h-full transition-all duration-500 hover:translate-y-[-5px]', className)}
+      className={cn(
+        'p-6 h-full transition-all duration-500 hover:translate-y-[-5px] cursor-pointer group', 
+        className
+      )}
       hoverEffect
+      onClick={onClick}
     >
       <div className="flex flex-col h-full gap-4">
         <div className="flex items-start justify-between">
@@ -39,6 +46,11 @@ const FeatureCard = ({
         <p className="text-gray-600 dark:text-gray-300 flex-grow">
           {description}
         </p>
+        
+        <div className="flex items-center text-repulse-600 text-sm font-medium pt-2">
+          <span className="mr-2">Discover more</span>
+          <AnimatedArrow size="sm" />
+        </div>
       </div>
     </GlassCard>
   );

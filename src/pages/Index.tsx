@@ -4,6 +4,7 @@ import Header from '../components/layout/Header';
 import Hero from '../components/sections/Hero';
 import Features from '../components/sections/Features';
 import Story from '../components/sections/Story';
+import Brochure from '../components/sections/Brochure';
 import CallToAction from '../components/sections/CallToAction';
 import Footer from '../components/layout/Footer';
 
@@ -59,6 +60,7 @@ const Index = () => {
         <Hero />
         <Features />
         <Story />
+        <Brochure />
         <CallToAction />
       </main>
       <Footer />

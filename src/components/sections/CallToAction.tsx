@@ -29,13 +29,13 @@ const CallToAction = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link to="/" className="w-full sm:w-auto">
+            <Link to="/join" className="w-full sm:w-auto">
               <button className="w-full px-8 py-4 rounded-full bg-repulse-500 text-white font-medium hover:bg-repulse-600 transition-colors flex items-center justify-center gap-2 group">
                 Get Started Now
                 <AnimatedArrow direction="right" size="sm" />
               </button>
             </Link>
-            <Link to="/" className="w-full sm:w-auto">
+            <Link to="/startup-hub" className="w-full sm:w-auto">
               <button className="w-full px-8 py-4 rounded-full border border-gray-300 dark:border-gray-700 hover:border-repulse-500 hover:text-repulse-600 transition-colors">
                 Learn More
               </button>

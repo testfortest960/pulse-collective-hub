@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import FeatureCard from '../ui/FeatureCard';
 import { 
   Recycle, 
@@ -15,6 +16,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, Di
 
 const Features = () => {
   const [selectedFeature, setSelectedFeature] = useState<number | null>(null);
+  const navigate = useNavigate();
 
   const features = [
     {
@@ -28,7 +30,8 @@ const Features = () => {
         "Resource allocation optimization for maximum impact",
         "Automated progress tracking and milestone celebrations",
         "Community-driven knowledge sharing platform"
-      ]
+      ],
+      path: "/startup-hub"
     },
     {
       icon: <Recycle className="w-6 h-6" />,
@@ -41,7 +44,8 @@ const Features = () => {
         "Community rewards for sustainable practices",
         "Food redistribution network to minimize waste",
         "Transparent impact tracking dashboard"
-      ]
+      ],
+      path: "/waste-management"
     },
     {
       icon: <Scale className="w-6 h-6" />,
@@ -54,7 +58,8 @@ const Features = () => {
         "Connection to pro bono attorneys for complex cases",
         "Multilingual support for diverse communities",
         "Plain language legal education resources"
-      ]
+      ],
+      path: "/legal-aid"
     },
     {
       icon: <Heart className="w-6 h-6" />,
@@ -67,7 +72,8 @@ const Features = () => {
         "Direct donor-recipient communication channels",
         "Community voting on fund allocation priorities",
         "Automated impact reporting"
-      ]
+      ],
+      path: "/donations"
     },
     {
       icon: <Users className="w-6 h-6" />,
@@ -80,12 +86,20 @@ const Features = () => {
         "Skill-sharing marketplace",
         "Global impact hackathons",
         "AI-facilitated brainstorming sessions"
-      ]
+      ],
+      path: "/collaboration"
     }
   ];
 
   const handleFeatureClick = (index: number) => {
     setSelectedFeature(index);
+  };
+
+  const handleExploreClick = () => {
+    if (selectedFeature !== null && features[selectedFeature]?.path) {
+      navigate(features[selectedFeature].path);
+      setSelectedFeature(null);
+    }
   };
 
   return (
@@ -166,10 +180,17 @@ const Features = () => {
             </ul>
           </div>
 
-          <div className="flex justify-end mt-6">
-            <DialogClose className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-repulse-600 hover:bg-repulse-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-repulse-500">
+          <div className="flex justify-between mt-6">
+            <DialogClose className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-gray-700 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
               Close
             </DialogClose>
+            
+            <button 
+              onClick={handleExploreClick}
+              className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-repulse-600 hover:bg-repulse-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-repulse-500"
+            >
+              Explore Feature <ExternalLink className="ml-2 h-4 w-4" />
+            </button>
           </div>
         </DialogContent>
       </Dialog>

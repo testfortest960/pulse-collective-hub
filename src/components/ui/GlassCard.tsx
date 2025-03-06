@@ -6,9 +6,10 @@ interface GlassCardProps {
   children: React.ReactNode;
   className?: string;
   hoverEffect?: boolean;
+  onClick?: () => void;  // Added onClick prop
 }
 
-const GlassCard = ({ children, className, hoverEffect = false }: GlassCardProps) => {
+const GlassCard = ({ children, className, hoverEffect = false, onClick }: GlassCardProps) => {
   return (
     <div
       className={cn(
@@ -16,6 +17,7 @@ const GlassCard = ({ children, className, hoverEffect = false }: GlassCardProps)
         hoverEffect && 'transition-all duration-300 hover:shadow-xl hover:border-white/30 hover:bg-white/15',
         className
       )}
+      onClick={onClick}  // Added onClick handler
     >
       {/* Subtle glass reflection effect */}
       <div className="absolute inset-0 bg-gradient-to-tr from-white/5 via-white/10 to-transparent pointer-events-none" />

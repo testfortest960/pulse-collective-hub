@@ -61,13 +61,13 @@ const Hero = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-up animate-delay-300">
-            <Link to="/" className="w-full sm:w-auto">
+            <Link to="/join" className="w-full sm:w-auto">
               <button className="w-full px-6 py-3 rounded-full bg-repulse-500 text-white font-medium hover:bg-repulse-600 transition-colors flex items-center justify-center gap-2 group">
                 Join the Movement
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </button>
             </Link>
-            <Link to="/" className="w-full sm:w-auto">
+            <Link to="/startup-hub" className="w-full sm:w-auto">
               <button className="w-full px-6 py-3 rounded-full border border-gray-300 dark:border-gray-700 hover:border-repulse-500 hover:text-repulse-600 transition-colors">
                 Learn More
               </button>
